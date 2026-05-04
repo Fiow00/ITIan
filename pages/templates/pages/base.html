@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Base{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+        {% block extra_css %}
+        {% endblock extra_css %}
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="/" class="nav-brand">
+                <span class="brand-dot"></span>
+                ITIan
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="/trainees/">Trainees</a>
+                </li>
+                <li>
+                    <a href="/courses/">Courses</a>
+                </li>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about/">About Us</a>
+                </li>
+            </ul>
+
+            <div class="nav-auth">
+                <a href="/accounts/login/" class="btn-login">Log In</a>
+                <a href="/accounts/register/" class="btn-signup">Sign Up</a>
+            </div>
+
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/trainees/">Trainees</a>
+                    </li>
+                    <li>
+                        <a href="/courses/">Courses</a>
+                    </li>
+                    <li>
+                        <a href="/about/">About Us</a>
+                    </li>
+                </ul>
+
+                <div class="mobile-divider"></div>
+
+                <div class="mobile-auth">
+                    <a href="/accounts/login/" class="btn-login">Log In</a>
+                    <a href="/accounts/register/" class="btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock content %}
+
+        <script src="{% static 'pages/js/main.js' %}"></script>
+
+        {% block extra_js %}
+        {% endblock extra_js %}
+    </body>
+</html>
