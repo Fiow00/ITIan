@@ -1,0 +1,15 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    Course update
+{% endblock title %}
+
+{% block content %}
+    <h1>Update course {{ course.title }}</h1>
+
+    <form>
+        Id <input type="number" placeholder="Update id"><br>
+        Title <input type="text" placeholder="Update title"><br>
+        <input type="submit" value="update">
+    </form>
+{% endblock content %}

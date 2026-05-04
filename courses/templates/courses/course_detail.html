@@ -1,0 +1,19 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    Course detail
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ course.title }} details</h1>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+        </tr>
+        <tr>
+            <td>{{ course.id }}</td>
+            <td>{{ course.title }}</td>
+        </tr>
+    </table>
+{% endblock content %}

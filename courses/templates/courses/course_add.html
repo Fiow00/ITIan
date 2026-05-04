@@ -1,0 +1,15 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    Course add
+{% endblock title %}
+
+{% block content %}
+    <h1>Add course</h1>
+
+    <form action="/courses/">
+        Id <input type="number" placeholder="Enter course id"><br/>
+        Title <input type="text" placeholder="Enter course title"><br/>
+        <input type="submit" value="Add">
+    </form>
+{% endblock content %}
