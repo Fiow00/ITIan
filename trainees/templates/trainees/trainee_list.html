@@ -1,0 +1,22 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    Trainee list
+{% endblock title %}
+
+{% block content %}
+    <h1>Trinee list</h1>
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        {% for trainee in trainees %}
+            <tr>
+                <td>{{ trainee.id }}</td>
+                <td>{{ trainee.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
