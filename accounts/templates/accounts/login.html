@@ -1,0 +1,40 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="auth-page">
+        <div class="login-card">
+            <div class="login-brand">
+                <span class="brand-dot"></span>
+                <span>ITIan</span>
+            </div>
+
+            <h1>Welcome back</h1>
+            <p class="login-subtitle">Sign in to your account to continue</p>
+
+            <form action="/">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username">
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn-submit">Log In</button>
+            </form>
+
+            <p class="auth-footer">
+                Don't have an account? <a href="/accounts/register">Sign up</a>
+            </p>
+        </div>
+    </div>
+{% endblock content %}

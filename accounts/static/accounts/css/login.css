@@ -1,0 +1,113 @@
+.auth-page {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #f7f7f5;
+}
+
+.login-card {
+    background: #fff;
+    border: 0.5px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 360px;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.75rem;
+}
+
+.login-brand .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #185FA5;
+}
+
+.login-brand span {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+
+.login-card h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.login-subtitle {
+    font-size: 13.5px;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 1rem;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #111;
+}
+
+.field input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 0.5px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    width: 100%;
+}
+
+.field input:focus {
+    border-color: #185FA5;
+    box-shadow: 0 0 0 3px #E6F1FB;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #185FA5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 0.5rem;
+    transition: opacity 0.15s;
+}
+
+.btn-submit:hover {
+    opacity: 0.88;
+}
+
+.auth-footer {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+
+.auth-footer a {
+    color: #185FA5;
+    font-weight: 500;
+    text-decoration: none;
+}
