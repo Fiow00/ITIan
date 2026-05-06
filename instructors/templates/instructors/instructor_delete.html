@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Instructor delete</title>
+    </head>
+    <body>
+        <p>Are you sure you want to delete this instructor ? he is an engineer !</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" value="delete">
+        </form>
+
+    </body>
+</html>

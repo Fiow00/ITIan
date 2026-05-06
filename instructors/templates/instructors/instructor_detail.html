@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Instructor detail</title>
+    </head>
+    <body>
+        <h1>Instructor detail</h1>
+
+        <table border="1">
+            <tr>
+                <td>id</td>
+                <th>name</th>
+                <th>age</th>
+                <th>description</th>
+            </tr>
+            <tr>
+                <td>{{ instructor.id }}</td>
+                <td>{{ instructor.name }}</td>
+                <td>{{ instructor.age }}</td>
+                <td>{{ instructor.description }}</td>
+                <td>
+                    <a href="{% url 'instructor_update' instructor.id %}">update</a>
+                </td>
+                <td>
+                    <a href="{% url 'instructor_delete' instructor.id %}">delete</a>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <a href="{% url 'instructor_list' %}">Back to instructors</a>
+        </p>
+    </body>
+</html>

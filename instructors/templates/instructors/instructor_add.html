@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Instructor add</title>
+    </head>
+    <body>
+        <h1>Instructor add</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name">
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" placeholder="Age">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="age" placeholder="description">
+            </div>
+
+            <input type="submit" value="Add Instructor">
+        </form>
+    </body>
+</html>

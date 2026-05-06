@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Instructor list</title>
+    </head>
+    <body>
+        <h1>Instructor list</h1>
+
+        <table border="1">
+            <tr>
+                <th>name</th>
+            </tr>
+                {% for instructor in instructors %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'instructor_detail' instructor.id %}">{{ instructor.name }}</a>
+                        </td>
+                    </tr>
+                {% endfor %} 
+        </table>
+
+        <p>
+            <a href="{% url 'instructor_add' %}">Add Instructor</a>
+        </p>
+    </body>
+</html>
