@@ -15,8 +15,14 @@
         {% for trainee in trainees %}
             <tr>
                 <td>{{ trainee.id }}</td>
-                <td>{{ trainee.name }}</td>
+                <td>
+                    <a href="{% url 'trainee_detail' trainee.id %}">{{ trainee.name }}</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
+
+    <p>
+        <a href="{% url 'trainee_add' %}">Add Trainee</a>
+    </p>
 {% endblock content %}

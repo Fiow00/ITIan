@@ -5,11 +5,24 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Add Student</h1>
+    <h1>Add Trainee</h1>
 
-    <form>
-        Username <input type="text" placeholder="Enter your name"><br>
-        Password <input type="password" placeholder="Enter your password">
-        <input type="submit" value="add">
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Name">
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" placeholder="Age">
+        </div>
+        <div>
+            <label for="degree">Degree</label>
+            <input type="number" name="degree" placeholder="degree">
+        </div>
+
+        <input type="submit" value="Add">
     </form>
+
 {% endblock content %}

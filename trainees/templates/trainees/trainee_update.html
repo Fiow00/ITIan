@@ -7,9 +7,20 @@
 {% block content %}
     <h1>Update trainee: {{ trainee.name }}</h1>
 
-    <form>
-        Id <input type="text" placeholder="update id"> <br>
-        Name <input type="text" placeholder="update name"> <br>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="name">Trainee name</label>
+            <input type="text" id="trainee_name" name="name" placeholder="Update name">
+        </div>
+        <div>
+            <label for="age">Trainee age</label>
+            <input type="number" id="trainee_age" name="age" placeholder="Update age">
+        </div>
+        <div>
+            <label for="degree">Trainee degree</label>
+            <input type="number" id="trainee_degree" name="degree" placeholder="Update degree">
+        </div>
         <input type="submit" value="update">
     </form>
 {% endblock content %}
