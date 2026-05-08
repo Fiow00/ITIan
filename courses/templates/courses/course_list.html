@@ -15,8 +15,12 @@
         {% for course in courses %}
             <tr>
                 <td>{{ course.id }}</td>
-                <td>{{ course.title }}</td>
+                <td><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></td>
             </tr>
         {% endfor %}
     </table>
+
+    <p>
+        <a href="{% url 'course_add' %}">Add Course</a>
+    </p>
 {% endblock content %}

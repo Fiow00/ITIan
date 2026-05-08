@@ -7,9 +7,21 @@
 {% block content %}
     <h1>Add course</h1>
 
-    <form action="/courses/">
-        Id <input type="number" placeholder="Enter course id"><br/>
-        Title <input type="text" placeholder="Enter course title"><br/>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="title">
+        </div>
+        <div>
+            <label for="code">Code</label>
+            <input type="text" name="code" id="code" placeholder="code">
+        </div>
+        <div>
+            <label for="track">Track</label>
+            <input type="text" name="track" id="track" placeholder="track">
+        </div>
+
         <input type="submit" value="Add">
     </form>
 {% endblock content %}

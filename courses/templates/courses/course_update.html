@@ -7,9 +7,22 @@
 {% block content %}
     <h1>Update course {{ course.title }}</h1>
 
-    <form>
-        Id <input type="number" placeholder="Update id"><br>
-        Title <input type="text" placeholder="Update title"><br>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="title"></label>
+            <input type="text" name="title" id="title" placeholder="title">
+        </div>
+        <div>
+            <label for="code"></label>
+            <input type="text" name="code" id="code" placeholder="code">
+        </div>
+        <div>
+            <label for="track"></label>
+            <input type="text" name="track" id="track" placeholder="track">
+        </div>
+
         <input type="submit" value="update">
     </form>
 {% endblock content %}

@@ -9,7 +9,8 @@
 
     <p>Are you sure you want to delete {{ course.title }} course ?</p>
 
-    <form>
+    <form method="POST">
+        {% csrf_token %}
         <input type="submit" value="delete">
     </form>
 {% endblock content %}

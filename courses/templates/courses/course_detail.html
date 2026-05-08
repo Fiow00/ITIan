@@ -10,10 +10,25 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
+            <th>Code</th>
+            <th>Track</th>
         </tr>
         <tr>
             <td>{{ course.id }}</td>
             <td>{{ course.title }}</td>
+            <td>{{ course.code }}</td>
+            <td>{{ course.track }}</td>
+
+            <td>
+                <a href="{% url 'course_update' course.id %}">Update</a>
+            </td>
+            <td>
+                <a href="{% url 'course_delete' course.id %}">Delete</a>
+            </td>
         </tr>
     </table>
+
+    <p>
+        <a href="{% url 'course_list' %}">Back to courses</a>
+    </p>
 {% endblock content %}
