@@ -1,8 +1,9 @@
 .venv/
 __pycache__/
-*.sqlite3
 *.pyc
+.git/
+.gitignore
+*.sqlite3
 media/
 .env
-*.log
-
+README.md
