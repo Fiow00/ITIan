@@ -40,7 +40,9 @@ def trainee_update(request, trainee_id):
 
         return redirect("trainee_detail", trainee_id = trainee.id)
 
-    return render(request, "trainees/trainee_update.html")
+    return render(request, "trainees/trainee_update.html", {
+        "trainee": trainee,
+    })
 
 def trainee_delete(request, trainee_id):
     trainee = Trainee.objects.get(id=trainee_id)
@@ -49,4 +51,6 @@ def trainee_delete(request, trainee_id):
         trainee.delete()
         return redirect("trainee_list")
 
-    return render(request, "trainees/trainee_delete.html",)
+    return render(request, "trainees/trainee_delete.html", {
+        "trainee": Trainee.objects.get(id=trainee_id)
+    })

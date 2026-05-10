@@ -11,4 +11,6 @@
         {% csrf_token %}
         <input type="submit" value="delete">
     </form>
+
+    <a href="{% url 'trainee_detail' trainee.pk %}">Cancel</a>
 {% endblock content %}
