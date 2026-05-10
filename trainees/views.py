@@ -15,22 +15,10 @@ def trainee_detail(request, trainee_id):
 
 def trainee_add(request):
     if request.method == "POST":
-        form = TraineeForm(data=request.POST, files=request.FILES)
+        form = TraineeForm(data=request.POST or None, files=request.FILES or None)
 
         if form.is_valid():
-            name = form.cleaned_data["name"]
-            age = form.cleaned_data["age"]
-            degree = form.cleaned_data["degree"]
-            course = form.cleaned_data["course"]
-            image = form.cleaned_data["image"]
-
-            Trainee.objects.create(
-                name=name,
-                age=age,
-                degree=degree,
-                course=course,
-                image=image
-            )
+            form.save()
 
             return redirect('trainee_list')
     else:
