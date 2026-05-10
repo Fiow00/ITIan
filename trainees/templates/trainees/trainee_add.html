@@ -7,21 +7,9 @@
 {% block content %}
     <h1>Add Trainee</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Name">
-        </div>
-        <div>
-            <label for="age">Age</label>
-            <input type="number" name="age" placeholder="Age">
-        </div>
-        <div>
-            <label for="degree">Degree</label>
-            <input type="number" name="degree" placeholder="degree">
-        </div>
-
+        {{ form.as_p }}
         <input type="submit" value="Add">
     </form>
 

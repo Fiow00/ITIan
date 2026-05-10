@@ -5,30 +5,48 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>{{ course.title }} details</h1>
+    <h1>Course Details</h1>
+
     <table border="1">
         <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Code</th>
-            <th>Track</th>
-        </tr>
-        <tr>
             <td>{{ course.id }}</td>
-            <td>{{ course.title }}</td>
-            <td>{{ course.code }}</td>
-            <td>{{ course.track }}</td>
+        </tr>
 
+        <tr>
+            <th>Title</th>
+            <td>{{ course.title }}</td>
+        </tr>
+
+        <tr>
+            <th>Code</th>
+            <td>{{ course.code }}</td>
+        </tr>
+
+        <tr>
+            <th>Track</th>
+            <td>{{ course.track }}</td>
+        </tr>
+
+        <tr>
+            <th>Trainees</th>
             <td>
-                <a href="{% url 'course_update' course.id %}">Update</a>
-            </td>
-            <td>
-                <a href="{% url 'course_delete' course.id %}">Delete</a>
+                <ul style="list-style: none;">
+                    {% for trainee in course.trainees.all %}
+                        <li>{{ trainee.name }}</li>
+                    {% empty %}
+                        <li>No trainees related to this course</li>
+                    {% endfor %}
+                </ul>
             </td>
         </tr>
     </table>
 
     <p>
+        <a href="{% url 'course_update' course.id %}">Update</a>
+        |
+        <a href="{% url 'course_delete' course.id %}">Delete</a>
+        |
         <a href="{% url 'course_list' %}">Back to courses</a>
     </p>
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .models import Trainee
+from .forms import TraineeForm
 
 def trainee_list(request):
     return render(request, "trainees/trainee_list.html", {
@@ -14,19 +15,31 @@ def trainee_detail(request, trainee_id):
 
 def trainee_add(request):
     if request.method == "POST":
-        name = request.POST["name"]
-        age = request.POST["age"]
-        degree = request.POST["degree"]
+        form = TraineeForm(data=request.POST, files=request.FILES)
 
-        Trainee.objects.create(
-            name=name,
-            age=age,
-            degree=degree
-        )
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            age = form.cleaned_data["age"]
+            degree = form.cleaned_data["degree"]
+            course = form.cleaned_data["course"]
+            image = form.cleaned_data["image"]
 
-        return redirect('trainee_list')
+            Trainee.objects.create(
+                name=name,
+                age=age,
+                degree=degree,
+                course=course,
+                image=image
+            )
 
-    return render(request, "trainees/trainee_add.html")
+            return redirect('trainee_list')
+    else:
+        form = TraineeForm()
+
+
+    return render(request, "trainees/trainee_add.html", {
+        "form": form,
+    })
 
 def trainee_update(request, trainee_id):
     trainee = Trainee.objects.get(id=trainee_id)

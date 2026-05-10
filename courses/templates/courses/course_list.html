@@ -17,6 +17,8 @@
                 <td>{{ course.id }}</td>
                 <td><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></td>
             </tr>
+        {% empty %}
+
         {% endfor %}
     </table>
 

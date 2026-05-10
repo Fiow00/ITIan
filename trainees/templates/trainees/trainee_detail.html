@@ -13,12 +13,14 @@
             <th>Name</th>
             <th>Age</th>
             <th>Degree</th>
+            <th>Courses</th>
         </tr>
         <tr>
             <td>{{ trainee.id }}</td>
             <td>{{ trainee.name }}</td>
             <td>{{ trainee.age }}</td>
             <td>{{ trainee.degree }}</td>
+            <td>{{ trainee.course }}</td>
             <td>
                 <a href="{% url 'trainee_update' trainee.id %}">Update</a>
             </td>
