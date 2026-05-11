@@ -1,7 +1,15 @@
 from django.shortcuts import render, redirect
 
+from django.views import View
+from django.views.generic import ListView
+
 from .models import Trainee
 from .forms import TraineeForm
+
+class TraineeListView(ListView):
+    model = Trainee
+    template_name = "trainees/trainee_list.html"
+    context_object_name = "trainees"
 
 def trainee_list(request):
     return render(request, "trainees/trainee_list.html", {
@@ -12,6 +20,26 @@ def trainee_detail(request, trainee_id):
     return render(request, "trainees/trainee_detail.html", {
         "trainee": Trainee.objects.get(id=trainee_id),
     })
+
+class TraineeAddView(View):
+    def get(self, request):
+        form = TraineeForm()
+
+        return render(request, "trainees/trainee_add.html", {
+            "form": form,
+        })
+
+    def post(self, request):
+        form = TraineeForm(data=request.POST, files=request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("trainee_list")
+        
+        return render(request, "trainees/trainee_add.html", {
+            "form": form,
+        })
 
 def trainee_add(request):
     if request.method == "POST":
