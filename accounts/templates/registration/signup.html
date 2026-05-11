@@ -1,0 +1,53 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}
+    register
+{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="auth-page">
+        <div class="signup-card">
+            <div class="signup-brand">
+                <span class="brand-dot"></span>
+                <span>ITIan</span>
+            </div>
+
+            <h1>Create account</h1>
+            <p class="signup-subtitle">
+                Join ITIan and start your journey
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" placeholder="Enter your username">
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="field">
+                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}" placeholder="Enter your password">
+                    {{ form.password1.errors }}
+                </div>
+
+                <div class="field">
+                    <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                    <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}" placeholder="Confirm Password">
+                    {{ form.password2.errors }}
+                </div>
+                <button type="submit" class="btn-submit">SignUp</button>
+            </form>
+            
+            <p class="auth-footer">
+                Already have an account?
+                <a href="{% url 'login' %}">Log in</a>
+            </p>
+        </div>
+    </div>
+{% endblock content %}
