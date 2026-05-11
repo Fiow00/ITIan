@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 from django.views import View
 from django.views.generic import ListView
+from django.views.generic.edit import CreateView
 
 from .models import Trainee
 from .forms import TraineeForm
@@ -11,51 +13,19 @@ class TraineeListView(ListView):
     template_name = "trainees/trainee_list.html"
     context_object_name = "trainees"
 
-def trainee_list(request):
-    return render(request, "trainees/trainee_list.html", {
-        "trainees": Trainee.objects.all(),
-    })
 
 def trainee_detail(request, trainee_id):
     return render(request, "trainees/trainee_detail.html", {
         "trainee": Trainee.objects.get(id=trainee_id),
     })
 
-class TraineeAddView(View):
-    def get(self, request):
-        form = TraineeForm()
 
-        return render(request, "trainees/trainee_add.html", {
-            "form": form,
-        })
+class TraineeAddView(CreateView):
+    model = Trainee
+    template_name = "trainees/trainee_add.html"
+    fields = ["name", "age", "degree", "course", "image"]
+    success_url = reverse_lazy("trainee_list")
 
-    def post(self, request):
-        form = TraineeForm(data=request.POST, files=request.FILES)
-
-        if form.is_valid():
-            form.save()
-
-            return redirect("trainee_list")
-        
-        return render(request, "trainees/trainee_add.html", {
-            "form": form,
-        })
-
-def trainee_add(request):
-    if request.method == "POST":
-        form = TraineeForm(data=request.POST or None, files=request.FILES or None)
-
-        if form.is_valid():
-            form.save()
-
-            return redirect('trainee_list')
-    else:
-        form = TraineeForm()
-
-
-    return render(request, "trainees/trainee_add.html", {
-        "form": form,
-    })
 
 def trainee_update(request, trainee_id):
     trainee = Trainee.objects.get(id=trainee_id)
@@ -72,6 +42,7 @@ def trainee_update(request, trainee_id):
     return render(request, "trainees/trainee_update.html", {
         "trainee": trainee,
     })
+
 
 def trainee_delete(request, trainee_id):
     trainee = Trainee.objects.get(id=trainee_id)
