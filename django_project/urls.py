@@ -28,6 +28,8 @@ urlpatterns = [
     path("courses/", include("courses.urls")),
     path("instructors/", include("instructors.urls")),
     path("", include("pages.urls")),
+    path("api/v1/trainees/", include("trainees.api.urls")),
+    path("api/v1/courses/", include("courses.api.urls")),
 ]
 
 if settings.DEBUG:
